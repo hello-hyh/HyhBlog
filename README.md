@@ -12,8 +12,9 @@
  <dt>微信浏览器中后退会加载缓存的问题</dt>
  <dd>
    在head标签中加入
-  > 'meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <code>meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     meta http-equiv="Pragma" content="no-cache" />
-    meta http-equiv="Expires" content="0" />'
+    meta http-equiv="Expires" content="0" />
+    </code>
  </dd>
 </dl>
