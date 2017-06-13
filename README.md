@@ -23,3 +23,10 @@ Bootstrap里的模态框无法用ajax向后端提交数据
 Install-Package EntityFramework -Version 6.0.0  
 Install-Package EntityFramework.zh-Hans -Version 6.0.0    
 _请注意6.0EF对Mysql支持度不够友好等待并寻找解决方案_  
+***
+## 发布.Net项目时的小问题  
+> 记得在Web.Cofing文件中加入      
+    `<customErrors mode="Off"></customErrors>`  
+  并在IIS中修改项目对应的应用程序池中的高级设置里将  
+  **启用32位应用程序**  更改为 **True**  
+  因为可能项目引用了NuGet的某些32位的包，如果不开，可能会导致项目出现编译失败。
