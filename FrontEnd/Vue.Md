@@ -1,4 +1,10 @@
 ## vue 或者 vue 全家桶
 
 * ### 关于v-for的小坑(?)
-  之前在项目中使用v-for的时候总是偷懒，对**key**这个Required属性一直使用遍历的Index，在官方文档中也指出了这个是可行的，但是当被遍历的数组动态修改时，由于Vue做了[做了优化](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)，我猜是做类似于缓存一样的机制，导致了我在数组中间添加一条数据时会发生倒数第二条的数据被渲染成了最后一条相同的数据，这里复现的前提是使用Index做Key的Value，并且是对象数组，我猜测是Vue在做更新的Diff时使用了我们错误的Key（**因为数组中间多了一条，数组长度增加了，Index也对应增加了，原本该是最后一条数据的Index变成了倒数第二条的Index**），导致了Vue在更新Dom时会错误的认为倒数第二个数据的Index（key）没有发生变化，从而使用了上一次的最后一条数据来更新Dom，这样Dom中反应出来的结果就是：增加数据后，最后两条不同数据被渲染成同样的结果，**后来将Key的Value换成了唯一键更新恢复正常也证实了我的猜想**(*也有可能是文档没看全。。*)
+  之前在项目中使用v-for的时候总是偷懒，对**key**这个Required属性一直使用遍历的Index，在官方文档中也指出了这个是可行的，但是当被遍历的数组动态修改时，由于Vue做了[做了优化](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)，我猜是做类似于缓存一样的机制，导致了我在数组中间添加一条数据时会发生倒数第二条的数据被渲染成了最后一条相同的数据，这里复现的前提是使用Index做Key的Value，并且是对象数组，我猜测是Vue在做更新的Diff时使用了我们错误的Key（**因为数组中间多了一条，数组长度增加了，Index也对应增加了，原本该是最后一条数据的Index变成了倒数第二条的Index**），导致了Vue在更新Dom时会错误的认为倒数第二个数据的Index（key）没有发生变化，从而使用了上一次的最后一条数据来更新Dom，这样Dom中反应出来的结果就是：增加数据后，最后两条不同数据被渲染成同样的结果，**后来将Key的Value换成了唯一键更新恢复正常也证实了我的猜想**(*也有可能是文档没看全。。*)  
+
+* ### vuecli@3和vuecli2的插件排除对比
+  在仅使用webpack构建类库的时候发现排除了Vue之后在VueCli3初始化出来的版本并没有自动找到依赖，构建该项目做分析
+  目前看来是因为之前的构建的类库中都使用了[externals](https://webpack.docschina.org/configuration/externals/)，但在排除vue时仅使用了string模式
+  导致被排除后引用只在window或者上下文中找，虽然这点没没想通为啥需要补全commonjs和commonjs2的支持，但是改为对象模式后引用项目找到了依赖。
+  [参见官方编译lib时使用的externals](https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-service/lib/commands/build/resolveLibConfig.js)
