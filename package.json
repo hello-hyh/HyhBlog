@@ -1,25 +1,13 @@
 {
-  "name": "hyhblog",
+  "name": "hyh-vue-press",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "vue": "^2.6.12",
-    "vuepress": "^1.6.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hello-hyh/HyhBlog.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hello-hyh/HyhBlog/issues"
-  },
-  "homepage": "https://github.com/hello-hyh/HyhBlog#readme"
+  "license": "ISC"
 }

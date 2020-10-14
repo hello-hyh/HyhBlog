@@ -1,4 +1,5 @@
 module.exports = {
-  title: 'Hello Markus',
-  description: 'Just Do It.'
+  title: 'Hello VuePress',
+  description: 'Just playing around',
+  dest: './dist'
 }
