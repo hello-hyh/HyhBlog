@@ -1,6 +1,7 @@
 module.exports = {
-  title: 'Hello VuePress',
-  description: 'Just playing around',
+  title: 'Hello World',
+  description: 'Just Do It',
+  dest: './dist',
   themeConfig: {
     displayAllHeaders: true,
     sidebar: {
