@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:docker": "docker build -f Dockerfile.yml -t  119.45.0.66:5000/markus_blog:latest . && docker push 119.45.0.66:5000/markus_blog"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.2",
     "vuepress": "^1.7.0"
   }
 }

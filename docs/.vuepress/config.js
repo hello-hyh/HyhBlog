@@ -1,37 +1,14 @@
 module.exports = {
-  title: 'Hello World',
+  title: 'Happy Slack Off',
   description: 'Just Do It',
   dest: './dist',
+  theme: '@vuepress/blog',
   themeConfig: {
     displayAllHeaders: true,
-    sidebar: {
-      '/frontend/': [
-        {
-          title: 'frontend',   // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2,    // 可选的, 默认值是 1
-          children: [
-            'vue-docs',
-            'essays',
-            'interview'
-          ]
-        }
-      ],
-      '/backend/': [
-        {
-          title: 'backend',   // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2,
-          children: [
-            'cs'
-          ]
-        }
-      ]
-    },
     nav: [{
-      text: '前端', link: '/frontend/'
+      text: '快乐摸鱼', link: 'https://stackoverflow.com/questions'
     }, {
-      text: '后端', link: '/backend/cs'
+      text: 'GitHub', link: 'https://github.com/hello-hyh'
     }]
   }
 }
