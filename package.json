@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:docker": "docker build -f Dockerfile.ym`l -t  119.45.0.66:5000/markus_blog:latest . && docker push 119.45.0.66:5000/markus_blog"
+    "docs:docker": "docker build -f Dockerfile.yml -t  ccr.ccs.tencentyun.com/hyh_backend/my_blog:latest . && docker push ccr.ccs.tencentyun.com/hyh_backend/my_blog:latest"
   },
   "author": "",
   "license": "ISC",
