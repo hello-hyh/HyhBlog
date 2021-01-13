@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Happy Slack Off',
+  title: '快乐摸鱼',
   description: 'Just Do It',
   dest: './dist',
   theme: '@vuepress/blog',
