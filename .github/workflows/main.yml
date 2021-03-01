@@ -27,3 +27,11 @@ jobs:
           dockerfile: Dockerfile.yml
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PWD }}
+      - name: 更新docker文件
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.ServerUserName }}
+          password: ${{ secrets.ServerPWD }}
+          port: ${{ secrets.PORT }}
+          script: docker rm -f blog && docker pull ccr.ccs.tencentyun.com/hyh_backend/my_blog:latest && docker run -d --rm -p 80:80 --name blog ccr.ccs.tencentyun.com/hyh_backend/my_blog:latest
