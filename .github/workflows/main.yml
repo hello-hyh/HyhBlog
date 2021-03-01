@@ -18,6 +18,15 @@ jobs:
         node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
+      - name: 上传docker镜像
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: hyh_backend/my_blog
+          tags: latest
+          registry: ccr.ccs.tencentyun.com
+          dockerfile: Dockerfile.yml
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PWD }}
       - name: 更新docker文件
         uses: appleboy/ssh-action@master
         with:
