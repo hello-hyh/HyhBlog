@@ -18,11 +18,12 @@ jobs:
         node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-
-      - uses: mr-smithers-excellent/docker-build-push@v4
-        name: Build & push Docker image
+      - name: 上传docker镜像
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: markus_blog
-          tag: latest
+          image: hyh_backend/my_blog
+          tags: latest
+          registry: ccr.ccs.tencentyun.com
           dockerfile: Dockerfile.yml
-          registry: ${{ secrets.DOCKER_REG }}          
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PWD }}
