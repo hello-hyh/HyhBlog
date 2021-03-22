@@ -3,6 +3,11 @@
 因为 ts 不识别.vue 文件，所以在.ts 文件中可能会出现`Can't find module "xx.vue"`
 所以需要一个 shims 文件来引导 ts 识别
 
+::: tip  
+记得放在src/下面  
+:joy:  
+:::
+
 ## 针对 vue2.x + ts
 
 ```ts
